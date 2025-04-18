@@ -24,7 +24,7 @@ COPY ./views ./views
 COPY .env.dev .env
 
 # Definir variável de ambiente para a construção
-ENV DATABASE_URL=postgres://postgres:pass@localhost/db_test
+ENV DATABASE_URL=postgres://codechat:140414Kaio@codechat.postgres.database.azure.com:5432/codechatv2
 RUN npx prisma generate
 
 RUN npm run build

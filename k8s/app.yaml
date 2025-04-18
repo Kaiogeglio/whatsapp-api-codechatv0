@@ -97,16 +97,13 @@ spec:
               value: "3RFYwe-fwf4fw4w8e-BrLZzx"
 
             - name: PROVIDER_ENABLED
-              value: "false"
+              value: "true"
 
             - name: PROVIDER_HOST
-              value: "127.0.0.1"
-
-            - name: PROVIDER_PORT
-              value: "5656"
+              value: "https://session.picchat.io"
 
             - name: PROVIDER_PREFIX
-              value: "codechat"
+              value: "session"
 
             - name: API_BACKEND
               value: ""
@@ -131,6 +128,9 @@ spec:
 
             - name: S3_USE_SSL
               value: "false"
+
+            - name: TESTE
+              value: "12"
 
       imagePullSecrets:
         - name: my-dockerhub-secret

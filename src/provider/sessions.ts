@@ -65,13 +65,14 @@ export class ProviderFiles {
 
   public async onModuleInit() {
     if (this.config.ENABLED) {
-      const url = `http://${this.config.HOST}:${this.config.PORT}`;
+      const url = this.config.HOST;
       const globalApiToken =
         this.configService.get<Auth>('AUTHENTICATION').GLOBAL_AUTH_TOKEN;
 
       try {
-        const response = await axios.options(url + '/ping');
-        if (response?.data != 'pong') {
+        // validar servidor de arquivos via GET /session/ping
+        const response = await axios.get(`${url}/session/ping`);
+        if (response?.data !== 'pong') {
           throw new Error('Offline file provider.');
         }
 
@@ -86,8 +87,8 @@ export class ProviderFiles {
           error?.message,
           error?.stack,
         ]);
-        const pid = process.pid;
-        execSync(`kill -9 ${pid}`);
+        // em Windows ou multiplataforma, finalize o processo sem usar 'kill'
+        process.exit(1);
       }
 
       this._client = axios.create({
