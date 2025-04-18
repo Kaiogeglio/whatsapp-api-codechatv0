@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: code-chat
-          image: overstackescola/code-chat:latest
+          image: overstackescola/code-chat:hermes
           ports:
             - containerPort: 8101
           env:
@@ -31,7 +31,7 @@ spec:
               value: "true"
 
             - name: DATABASE_URL
-              value: "postgres://codechat:140414Kaio@codechat.postgres.database.azure.com:5432/codechatv2"
+              value: "postgres://codechat:140414Kaio@codechat.postgres.database.azure.com:5432/codechatdev"
 
             - name: DATABASE_SYNC_MESSAGES
               value: "true"
@@ -55,7 +55,7 @@ spec:
               value: "true"
 
             - name: WEBHOOK_GLOBAL_URL
-              value: "https://webhookv4.picchat.io/webhook/codechat"
+              value: "https://hermes-webhookv4.picchat.io/webhook/codechat"
 
             - name: WEBHOOK_GLOBAL_ENABLED
               value: "true"
@@ -100,7 +100,7 @@ spec:
               value: "true"
 
             - name: PROVIDER_HOST
-              value: "https://session.picchat.io"
+              value: "https://hermes-session.picchat.io"
 
             - name: PROVIDER_PREFIX
               value: "session"
