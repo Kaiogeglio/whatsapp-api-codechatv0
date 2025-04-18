@@ -130,7 +130,7 @@ spec:
               value: "false"
 
             - name: TESTE
-              value: "12"
+              value: "1222"
 
       imagePullSecrets:
         - name: my-dockerhub-secret
